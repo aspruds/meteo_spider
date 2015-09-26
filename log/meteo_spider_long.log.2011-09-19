@@ -1,0 +1,73 @@
+2011-09-19 00:31:08,322 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-19 00:31:09,296 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-19 00:31:09,817 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-19 00:31:12,480 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-19 00:31:12,566 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - could not obtain reading for a location
+java.lang.RuntimeException: reading does not contain temperature: <?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city data="Aglona,Latvia"/><postal_code data="Aglona,Latvia"/><latitude_e6 data=""/><longitude_e6 data=""/><forecast_date data="2011-09-18"/><current_date_time data="1970-01-01 00:00:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition data=""/><temp_f data=""/><temp_c data=""/><humidity data="Humidity: 0%"/><icon data=""/></current_conditions><forecast_conditions><day_of_week data="Sun"/><low data="43"/><high data="61"/><icon data="/ig/images/weather/mostly_sunny.gif"/><condition data="Partly Sunny"/></forecast_conditions><forecast_conditions><day_of_week data="Mon"/><low data="52"/><high data="64"/><icon data="/ig/images/weather/cloudy.gif"/><condition data="Cloudy"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low data="46"/><high data="61"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low data="48"/><high data="64"/><icon data="/ig/images/weather/cloudy.gif"/><condition data="Cloudy"/></forecast_conditions></weather></xml_api_reply>
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:88)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:22)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:32)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2011-09-19 00:31:12,567 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-19 00:31:14,767 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-19 00:31:16,920 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Auce,Latvia
+2011-09-19 00:31:19,057 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Balvi,Latvia
+2011-09-19 00:31:19,151 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - could not obtain reading for a location
+java.lang.RuntimeException: reading does not contain temperature: <?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city data="Balvi,Latvia"/><postal_code data="Balvi,Latvia"/><latitude_e6 data=""/><longitude_e6 data=""/><forecast_date data="2011-09-18"/><current_date_time data="1970-01-01 00:00:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition data=""/><temp_f data=""/><temp_c data=""/><humidity data="Humidity: 0%"/><icon data=""/></current_conditions><forecast_conditions><day_of_week data="Sun"/><low data="45"/><high data="63"/><icon data="/ig/images/weather/cloudy.gif"/><condition data="Cloudy"/></forecast_conditions><forecast_conditions><day_of_week data="Mon"/><low data="52"/><high data="64"/><icon data="/ig/images/weather/cloudy.gif"/><condition data="Cloudy"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low data="48"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low data="48"/><high data="64"/><icon data="/ig/images/weather/cloudy.gif"/><condition data="Cloudy"/></forecast_conditions></weather></xml_api_reply>
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:88)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:22)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:32)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2011-09-19 00:31:19,151 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Bauska,Latvia
+2011-09-19 00:31:21,302 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Cēsis,Latvia
+2011-09-19 00:31:23,621 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Dobele,Latvia
+2011-09-19 00:31:26,716 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Gulbene,Latvia
+2011-09-19 00:31:28,871 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Jaunpils,Latvia
+2011-09-19 00:31:31,033 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Jelgava,Latvia
+2011-09-19 00:31:33,188 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Jēkabpils,Latvia
+2011-09-19 00:31:35,342 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Jūrmala,Latvia
+2011-09-19 00:31:37,506 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Kandava,Latvia
+2011-09-19 00:31:39,652 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Kuldīga,Latvia
+2011-09-19 00:31:41,815 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Kolka,Latvia
+2011-09-19 00:31:44,002 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Lielvārde,Latvia
+2011-09-19 00:31:46,206 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Liepāja,Latvia
+2011-09-19 00:31:48,369 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Lubāna,Latvia
+2011-09-19 00:31:50,549 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Madona,Latvia
+2011-09-19 00:31:52,751 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Mālpils,Latvia
+2011-09-19 00:31:54,940 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Mērsrags,Latvia
+2011-09-19 00:31:57,110 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Nereta,Latvia
+2011-09-19 00:31:59,299 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Nīca,Latvia
+2011-09-19 00:32:01,487 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Olaine,Latvia
+2011-09-19 00:32:03,715 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Priekule,Latvia
+2011-09-19 00:32:05,921 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Pāvilosta,Latvia
+2011-09-19 00:32:08,107 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Ranka,Latvia
+2011-09-19 00:32:10,321 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Roja,Latvia
+2011-09-19 00:32:12,512 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Rēzekne,Latvia
+2011-09-19 00:32:12,599 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - could not obtain reading for a location
+java.lang.RuntimeException: reading does not contain temperature: <?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city data="R&#x113;zekne,Latvia"/><postal_code data="R&#x113;zekne,Latvia"/><latitude_e6 data=""/><longitude_e6 data=""/><forecast_date data="2011-09-18"/><current_date_time data="1970-01-01 00:00:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition data=""/><temp_f data=""/><temp_c data=""/><humidity data="Humidity: 0%"/><icon data=""/></current_conditions><forecast_conditions><day_of_week data="Sun"/><low data="45"/><high data="61"/><icon data="/ig/images/weather/cloudy.gif"/><condition data="Cloudy"/></forecast_conditions><forecast_conditions><day_of_week data="Mon"/><low data="52"/><high data="63"/><icon data="/ig/images/weather/cloudy.gif"/><condition data="Cloudy"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low data="46"/><high data="61"/><icon data="/ig/images/weather/mostly_sunny.gif"/><condition data="Mostly Sunny"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low data="48"/><high data="64"/><icon data="/ig/images/weather/cloudy.gif"/><condition data="Cloudy"/></forecast_conditions></weather></xml_api_reply>
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:88)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:22)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:32)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2011-09-19 00:32:12,599 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Rūjiena,Latvia
+2011-09-19 00:32:14,797 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Salacgrīva,Latvia
+2011-09-19 00:32:16,985 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Salaspils,Latvia
+2011-09-19 00:32:19,139 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Saldus,Latvia
+2011-09-19 00:32:21,352 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Sigulda,Latvia
+2011-09-19 00:32:23,505 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Skrunda,Latvia
+2011-09-19 00:32:25,652 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Skulte,Latvia
+2011-09-19 00:32:27,797 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Smiltene,Latvia
+2011-09-19 00:32:29,935 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Talsi,Latvia
+2011-09-19 00:32:32,127 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Tukums,Latvia
+2011-09-19 00:32:34,259 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Ugāle,Latvia
+2011-09-19 00:32:36,422 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Valdemārpils,Latvia
+2011-09-19 00:32:38,606 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Valka,Latvia
+2011-09-19 00:32:40,774 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Valmiera,Latvia
+2011-09-19 00:32:42,938 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Vecpiebalga,Latvia
+2011-09-19 00:32:45,100 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Ventspils,Latvia
+2011-09-19 00:32:47,255 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.google.com/ig/api?hl=en&weather=Ērgļi,Latvia
+2011-09-19 00:32:49,484 DEBUG com.spruds.meteo.service.tasks.LatvianRadarReaderTask  - LatvianRadarReaderTask running
+2011-09-19 00:32:49,484 DEBUG com.spruds.meteo.utils.HttpManager  - fetching http://www.meteo.lv/OPSIS/radars/radars.png

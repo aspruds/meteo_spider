@@ -1,0 +1,554 @@
+2011-09-13 00:03:30,299 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:03:31,290 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:03:31,788 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?weather=Riga
+2011-09-13 00:03:32,886 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.NullPointerException
+	at com.spruds.meteo.service.data.ReadingService.save(ReadingService.java:11)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:30)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2011-09-13 00:10:38,805 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:10:39,798 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:10:39,997 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.IllegalArgumentException
+	at java.net.URI.create(URI.java:842)
+	at org.apache.http.client.methods.HttpGet.<init>(HttpGet.java:69)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.fetchXML(GoogleDataProvider.java:33)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:21)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.net.URISyntaxException: Illegal character in query at index 43: https://www.google.com/ig/api?weather=Riga, Latvia
+	at java.net.URI$Parser.fail(URI.java:2809)
+	at java.net.URI$Parser.checkChars(URI.java:2982)
+	at java.net.URI$Parser.parseHierarchical(URI.java:3072)
+	at java.net.URI$Parser.parse(URI.java:3014)
+	at java.net.URI.<init>(URI.java:578)
+	at java.net.URI.create(URI.java:840)
+	... 6 more
+2011-09-13 00:11:27,062 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:11:28,057 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:11:28,247 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?weather=Riga,Latvia
+2011-09-13 00:11:29,142 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.NullPointerException
+	at com.spruds.meteo.service.data.ReadingService.save(ReadingService.java:11)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:30)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2011-09-13 00:16:55,581 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:16:56,576 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:16:56,780 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:16:57,566 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.NullPointerException
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:22)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2011-09-13 00:17:59,193 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:18:00,189 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:18:00,386 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:18:01,301 WARN  org.hibernate.util.JDBCExceptionReporter  - SQL Error: 1054, SQLState: 42S22
+2011-09-13 00:18:01,306 ERROR org.hibernate.util.JDBCExceptionReporter  - Unknown column 'STATUS_TYPE_ID' in 'field list'
+2011-09-13 00:18:01,310 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+org.springframework.dao.InvalidDataAccessResourceUsageException: could not insert: [com.spruds.meteo.model.Reading]; SQL [insert into readings (DATE_OBTAINED, LOCATION_ID, STATUS_TYPE_ID, TEMPERATURE) values (?, ?, ?, ?)]; nested exception is org.hibernate.exception.SQLGrammarException: could not insert: [com.spruds.meteo.model.Reading]
+	at org.springframework.orm.hibernate3.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:629)
+	at org.springframework.orm.hibernate3.HibernateAccessor.convertHibernateAccessException(HibernateAccessor.java:412)
+	at org.springframework.orm.hibernate3.HibernateTemplate.doExecute(HibernateTemplate.java:411)
+	at org.springframework.orm.hibernate3.HibernateTemplate.executeWithNativeSession(HibernateTemplate.java:374)
+	at org.springframework.orm.hibernate3.HibernateTemplate.save(HibernateTemplate.java:683)
+	at com.spruds.meteo.service.data.ReadingService.save(ReadingService.java:14)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:30)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: org.hibernate.exception.SQLGrammarException: could not insert: [com.spruds.meteo.model.Reading]
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:67)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)
+	at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2158)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2638)
+	at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:48)
+	at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:250)
+	at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)
+	at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)
+	at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)
+	at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:33)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)
+	at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:27)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)
+	at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:535)
+	at org.hibernate.impl.SessionImpl.save(SessionImpl.java:523)
+	at org.hibernate.impl.SessionImpl.save(SessionImpl.java:519)
+	at org.springframework.orm.hibernate3.HibernateTemplate$12.doInHibernate(HibernateTemplate.java:686)
+	at org.springframework.orm.hibernate3.HibernateTemplate$12.doInHibernate(HibernateTemplate.java:1)
+	at org.springframework.orm.hibernate3.HibernateTemplate.doExecute(HibernateTemplate.java:406)
+	... 6 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'STATUS_TYPE_ID' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.Util.getInstance(Util.java:381)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3558)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3490)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1959)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2109)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2077)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2362)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2280)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2265)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at org.hibernate.id.IdentityGenerator$GetGeneratedKeysDelegate.executeAndExtract(IdentityGenerator.java:73)
+	at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:33)
+	... 24 more
+2011-09-13 00:22:13,403 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:22:14,399 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:22:14,598 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:22:15,572 WARN  org.hibernate.util.JDBCExceptionReporter  - SQL Error: 1054, SQLState: 42S22
+2011-09-13 00:22:15,573 ERROR org.hibernate.util.JDBCExceptionReporter  - Unknown column 'STATUS_TYPE_ID' in 'field list'
+2011-09-13 00:22:15,575 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+org.springframework.dao.InvalidDataAccessResourceUsageException: could not insert: [com.spruds.meteo.model.Reading]; SQL [insert into readings (DATE_OBTAINED, LOCATION_ID, STATUS_TYPE_ID, TEMPERATURE) values (?, ?, ?, ?)]; nested exception is org.hibernate.exception.SQLGrammarException: could not insert: [com.spruds.meteo.model.Reading]
+	at org.springframework.orm.hibernate3.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:629)
+	at org.springframework.orm.hibernate3.HibernateAccessor.convertHibernateAccessException(HibernateAccessor.java:412)
+	at org.springframework.orm.hibernate3.HibernateTemplate.doExecute(HibernateTemplate.java:411)
+	at org.springframework.orm.hibernate3.HibernateTemplate.executeWithNativeSession(HibernateTemplate.java:374)
+	at org.springframework.orm.hibernate3.HibernateTemplate.save(HibernateTemplate.java:683)
+	at com.spruds.meteo.service.data.ReadingService.save(ReadingService.java:11)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:30)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: org.hibernate.exception.SQLGrammarException: could not insert: [com.spruds.meteo.model.Reading]
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:67)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)
+	at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2158)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2638)
+	at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:48)
+	at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:250)
+	at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)
+	at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)
+	at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)
+	at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:33)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)
+	at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:27)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)
+	at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:535)
+	at org.hibernate.impl.SessionImpl.save(SessionImpl.java:523)
+	at org.hibernate.impl.SessionImpl.save(SessionImpl.java:519)
+	at org.springframework.orm.hibernate3.HibernateTemplate$12.doInHibernate(HibernateTemplate.java:686)
+	at org.springframework.orm.hibernate3.HibernateTemplate$12.doInHibernate(HibernateTemplate.java:1)
+	at org.springframework.orm.hibernate3.HibernateTemplate.doExecute(HibernateTemplate.java:406)
+	... 6 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'STATUS_TYPE_ID' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.Util.getInstance(Util.java:381)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3558)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3490)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1959)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2109)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2077)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2362)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2280)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2265)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:101)
+	at org.hibernate.id.IdentityGenerator$GetGeneratedKeysDelegate.executeAndExtract(IdentityGenerator.java:73)
+	at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:33)
+	... 24 more
+2011-09-13 00:23:03,065 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:23:04,061 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:23:04,250 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:27:50,224 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:27:51,218 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:27:51,417 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:27:52,205 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.RuntimeException: java.io.FileNotFoundException: /home/andris/ur/java/meteo_spider/persons.xml (No such file or directory)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:30)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:23)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.io.FileNotFoundException: /home/andris/ur/java/meteo_spider/persons.xml (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:120)
+	at java.io.FileInputStream.<init>(FileInputStream.java:79)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:70)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:161)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:653)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:186)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:772)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:737)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:119)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:235)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:284)
+	at javax.xml.parsers.DocumentBuilder.parse(DocumentBuilder.java:180)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:24)
+	... 4 more
+2011-09-13 00:36:34,908 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:36:35,903 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:36:36,099 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:36:36,907 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.RuntimeException: java.net.MalformedURLException: no protocol: <?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city data="Riga,Latvia"/><postal_code data="Riga,Latvia"/><latitude_e6 data=""/><longitude_e6 data=""/><forecast_date data="2011-09-12"/><current_date_time data="2011-09-12 20:50:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition data="Clear"/><temp_f data="57"/><temp_c data="14"/><humidity data="Humidity: 94%"/><icon data="/ig/images/weather/sunny.gif"/><wind_condition data="Wind: S at 7 mph"/></current_conditions><forecast_conditions><day_of_week data="Mon"/><low data="52"/><high data="70"/><icon data="/ig/images/weather/chance_of_storm.gif"/><condition data="Chance of Storm"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low data="52"/><high data="64"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low data="52"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Thu"/><low data="46"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions></weather></xml_api_reply>
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:38)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:23)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.net.MalformedURLException: no protocol: <?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city data="Riga,Latvia"/><postal_code data="Riga,Latvia"/><latitude_e6 data=""/><longitude_e6 data=""/><forecast_date data="2011-09-12"/><current_date_time data="2011-09-12 20:50:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition data="Clear"/><temp_f data="57"/><temp_c data="14"/><humidity data="Humidity: 94%"/><icon data="/ig/images/weather/sunny.gif"/><wind_condition data="Wind: S at 7 mph"/></current_conditions><forecast_conditions><day_of_week data="Mon"/><low data="52"/><high data="70"/><icon data="/ig/images/weather/chance_of_storm.gif"/><condition data="Chance of Storm"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low data="52"/><high data="64"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low data="52"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Thu"/><low data="46"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions></weather></xml_api_reply>
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:650)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:186)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:772)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:737)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:119)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:235)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:284)
+	at javax.xml.parsers.DocumentBuilder.parse(DocumentBuilder.java:180)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:33)
+	... 4 more
+2011-09-13 00:37:35,904 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:37:35,908 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:37:35,995 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.RuntimeException: java.net.MalformedURLException: no protocol: <?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city data="Riga,Latvia"/><postal_code data="Riga,Latvia"/><latitude_e6 data=""/><longitude_e6 data=""/><forecast_date data="2011-09-12"/><current_date_time data="2011-09-12 20:50:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition data="Clear"/><temp_f data="57"/><temp_c data="14"/><humidity data="Humidity: 94%"/><icon data="/ig/images/weather/sunny.gif"/><wind_condition data="Wind: S at 7 mph"/></current_conditions><forecast_conditions><day_of_week data="Mon"/><low data="52"/><high data="70"/><icon data="/ig/images/weather/chance_of_storm.gif"/><condition data="Chance of Storm"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low data="52"/><high data="64"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low data="52"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Thu"/><low data="46"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions></weather></xml_api_reply>
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:38)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:23)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.net.MalformedURLException: no protocol: <?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city data="Riga,Latvia"/><postal_code data="Riga,Latvia"/><latitude_e6 data=""/><longitude_e6 data=""/><forecast_date data="2011-09-12"/><current_date_time data="2011-09-12 20:50:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition data="Clear"/><temp_f data="57"/><temp_c data="14"/><humidity data="Humidity: 94%"/><icon data="/ig/images/weather/sunny.gif"/><wind_condition data="Wind: S at 7 mph"/></current_conditions><forecast_conditions><day_of_week data="Mon"/><low data="52"/><high data="70"/><icon data="/ig/images/weather/chance_of_storm.gif"/><condition data="Chance of Storm"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low data="52"/><high data="64"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low data="52"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Thu"/><low data="46"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions></weather></xml_api_reply>
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:650)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:186)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:772)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:737)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:119)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:235)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:284)
+	at javax.xml.parsers.DocumentBuilder.parse(DocumentBuilder.java:180)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:33)
+	... 4 more
+2011-09-13 00:38:35,904 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:38:35,908 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:38:35,969 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.RuntimeException: java.net.MalformedURLException: no protocol: <?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city data="Riga,Latvia"/><postal_code data="Riga,Latvia"/><latitude_e6 data=""/><longitude_e6 data=""/><forecast_date data="2011-09-12"/><current_date_time data="2011-09-12 20:50:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition data="Clear"/><temp_f data="57"/><temp_c data="14"/><humidity data="Humidity: 94%"/><icon data="/ig/images/weather/sunny.gif"/><wind_condition data="Wind: S at 7 mph"/></current_conditions><forecast_conditions><day_of_week data="Mon"/><low data="52"/><high data="70"/><icon data="/ig/images/weather/chance_of_storm.gif"/><condition data="Chance of Storm"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low data="52"/><high data="64"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low data="52"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Thu"/><low data="46"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions></weather></xml_api_reply>
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:38)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:23)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.net.MalformedURLException: no protocol: <?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city data="Riga,Latvia"/><postal_code data="Riga,Latvia"/><latitude_e6 data=""/><longitude_e6 data=""/><forecast_date data="2011-09-12"/><current_date_time data="2011-09-12 20:50:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition data="Clear"/><temp_f data="57"/><temp_c data="14"/><humidity data="Humidity: 94%"/><icon data="/ig/images/weather/sunny.gif"/><wind_condition data="Wind: S at 7 mph"/></current_conditions><forecast_conditions><day_of_week data="Mon"/><low data="52"/><high data="70"/><icon data="/ig/images/weather/chance_of_storm.gif"/><condition data="Chance of Storm"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low data="52"/><high data="64"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low data="52"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions><forecast_conditions><day_of_week data="Thu"/><low data="46"/><high data="63"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition data="Chance of Rain"/></forecast_conditions></weather></xml_api_reply>
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:650)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:186)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:772)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:737)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:119)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:235)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:284)
+	at javax.xml.parsers.DocumentBuilder.parse(DocumentBuilder.java:180)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:33)
+	... 4 more
+2011-09-13 00:39:18,697 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:39:19,691 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:39:19,876 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:39:20,770 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.RuntimeException: java.lang.NullPointerException
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:39)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:23)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.lang.NullPointerException
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.getValue(GoogleMessageParser.java:49)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:36)
+	... 4 more
+2011-09-13 00:40:19,359 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:40:20,358 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:40:20,547 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:40:21,328 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.RuntimeException: java.lang.NullPointerException
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:40)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:23)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.lang.NullPointerException
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.getValue(GoogleMessageParser.java:50)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:37)
+	... 4 more
+2011-09-13 00:40:44,953 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:40:45,948 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:40:46,154 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:40:46,965 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.RuntimeException: java.lang.NullPointerException
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:40)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:23)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.lang.NullPointerException
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.getValue(GoogleMessageParser.java:50)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:37)
+	... 4 more
+2011-09-13 00:41:27,567 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:41:28,562 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:41:28,742 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:41:29,528 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.RuntimeException: java.lang.NullPointerException
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:44)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:23)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.lang.NullPointerException
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.getValue(GoogleMessageParser.java:54)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:38)
+	... 4 more
+2011-09-13 00:42:25,290 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:42:26,285 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:42:26,478 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:42:42,836 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:42:43,833 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:42:44,017 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:42:44,851 ERROR com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask failed
+java.lang.RuntimeException: java.lang.ClassCastException: java.lang.String cannot be cast to org.w3c.dom.Node
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:44)
+	at com.spruds.meteo.service.xml.GoogleDataProvider.getReading(GoogleDataProvider.java:23)
+	at com.spruds.meteo.service.tasks.GoogleReaderTask.run(GoogleReaderTask.java:29)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+Caused by: java.lang.ClassCastException: java.lang.String cannot be cast to org.w3c.dom.Node
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.getValue(GoogleMessageParser.java:56)
+	at com.spruds.meteo.service.xml.parsers.GoogleMessageParser.parseMessage(GoogleMessageParser.java:38)
+	... 4 more
+2011-09-13 00:43:18,002 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:43:18,997 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:43:19,180 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:43:53,536 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:43:54,531 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:43:54,747 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:44:23,596 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:44:24,591 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:44:24,787 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:44:51,844 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:44:52,840 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:44:53,035 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:45:48,554 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 00:45:49,549 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:45:49,740 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:46:49,549 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 00:46:49,553 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 00:47:06,309 DEBUG com.spruds.meteo.utils.daemon.Shutdown  - Shutdown command issued:shutdown
+2011-09-13 00:47:06,312 DEBUG com.spruds.meteo.utils.daemon.AbstractDaemon  - recieved command [shutdown] from [/127.0.0.1:39343].
+2011-09-13 00:47:06,313 DEBUG com.spruds.meteo.utils.daemon.AbstractDaemon  - shutdown command recieved
+2011-09-13 00:47:06,315 INFO  com.spruds.meteo.service.SpiderDaemon  - shutdown complete
+2011-09-13 16:31:18,899 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 16:31:19,889 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:31:20,154 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 16:32:19,889 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:32:19,893 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 16:35:18,956 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 16:35:19,952 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:35:20,135 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 16:35:22,710 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:36:19,952 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:36:19,960 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 16:36:20,190 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:36:47,418 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 16:36:48,413 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:36:48,582 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Riga,Latvia
+2011-09-13 16:36:49,567 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:36:49,748 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:41:34,222 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 16:41:35,218 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:41:35,384 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:41:36,425 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:41:36,623 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:41:36,805 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:42:35,217 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:42:35,220 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:42:35,484 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:42:35,650 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:42:35,815 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:43:35,217 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:43:35,221 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:43:35,400 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:43:35,565 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:43:35,722 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:44:35,217 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:44:35,226 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:44:35,400 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:44:35,573 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:44:35,738 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:45:35,217 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:45:35,225 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:45:35,419 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:45:35,626 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:45:35,791 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:46:35,217 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:46:35,225 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:46:35,403 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:46:35,569 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:46:35,726 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:47:35,217 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:47:35,225 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:47:35,383 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:47:35,541 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:47:35,698 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:48:35,218 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:48:35,226 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:48:35,434 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:48:35,624 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:48:35,806 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:49:35,218 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:49:35,226 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:49:35,394 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:49:35,568 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:49:35,733 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:50:35,218 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:50:35,226 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:50:35,382 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:50:36,100 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:50:36,282 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:51:35,218 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:51:35,226 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:51:35,408 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:51:35,574 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:51:35,739 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:52:35,219 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:52:35,226 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:52:35,703 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:52:35,868 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:52:36,033 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:53:35,219 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:53:35,226 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:53:35,405 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:53:35,636 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:53:35,793 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:54:35,219 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:54:35,227 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:54:35,411 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:54:35,576 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:54:35,774 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:55:35,220 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:55:35,226 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:55:35,391 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:55:35,548 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:55:35,722 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:56:35,220 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:56:35,227 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:56:35,384 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:56:35,821 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:56:35,995 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:57:35,221 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:57:35,228 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:57:35,417 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:57:35,599 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:57:35,772 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:58:35,221 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:58:35,228 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:58:35,385 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:58:35,550 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:58:35,707 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 16:59:35,222 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 16:59:35,229 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 16:59:35,398 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 16:59:36,356 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 16:59:36,513 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:00:35,223 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:00:35,225 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:00:35,426 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:00:35,616 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:00:35,914 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:01:35,224 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:01:35,227 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:01:35,450 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:01:35,624 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:01:35,805 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:02:35,223 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:02:35,230 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:02:35,406 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:02:35,580 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:02:35,753 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:03:35,224 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:03:35,231 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:03:35,418 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:03:35,608 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:03:35,790 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:04:35,224 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:04:35,233 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:04:35,415 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:04:35,589 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:04:35,771 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:04:35,944 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ance,Latvia
+2011-09-13 17:04:36,134 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ape,Latvia
+2011-09-13 17:05:38,308 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 17:05:39,304 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:05:39,479 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:05:40,498 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:05:40,655 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:05:40,803 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:05:40,952 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ance,Latvia
+2011-09-13 17:05:41,101 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ape,Latvia
+2011-09-13 17:05:41,266 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Auce,Latvia
+2011-09-13 17:06:39,304 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:06:39,318 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:06:39,501 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:06:39,684 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:06:39,841 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:06:40,015 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ance,Latvia
+2011-09-13 17:06:40,188 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ape,Latvia
+2011-09-13 17:06:40,354 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Auce,Latvia
+2011-09-13 17:07:39,305 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:07:39,315 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:07:39,496 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:07:39,661 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:07:39,884 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:07:40,041 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ance,Latvia
+2011-09-13 17:07:40,216 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ape,Latvia
+2011-09-13 17:07:40,389 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Auce,Latvia
+2011-09-13 17:08:39,305 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:08:39,316 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:08:39,495 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:08:39,652 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:08:39,818 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:08:40,008 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ance,Latvia
+2011-09-13 17:08:40,173 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ape,Latvia
+2011-09-13 17:08:40,338 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Auce,Latvia
+2011-09-13 17:08:40,562 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Balvi,Latvia
+2011-09-13 17:47:06,788 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-13 17:47:07,784 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-13 17:47:07,962 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Rīga,Latvia
+2011-09-13 17:47:09,049 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aglona,Latvia
+2011-09-13 17:47:09,222 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizkraukle,Latvia
+2011-09-13 17:47:09,403 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Aizpute,Latvia
+2011-09-13 17:47:09,577 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ance,Latvia
+2011-09-13 17:47:09,734 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Ape,Latvia
+2011-09-13 17:47:09,899 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Auce,Latvia
+2011-09-13 17:47:10,089 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Balvi,Latvia
+2011-09-13 17:47:10,257 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Bauska,Latvia
+2011-09-13 17:47:10,413 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Cēsis,Latvia
+2011-09-13 17:47:10,586 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Dobele,Latvia
+2011-09-13 17:47:10,760 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Gulbene,Latvia
+2011-09-13 17:47:10,950 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Jaunpils,Latvia
+2011-09-13 17:47:11,115 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Jelgava,Latvia
+2011-09-13 17:47:11,289 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Jēkabpils,Latvia
+2011-09-13 17:47:11,504 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Jūrmala,Latvia
+2011-09-13 17:47:11,669 DEBUG com.spruds.meteo.utils.HttpManager  - fetching https://www.google.com/ig/api?hl=en&weather=Kandava,Latvia

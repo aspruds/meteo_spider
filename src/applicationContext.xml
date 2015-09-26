@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            ">
+
+<!--
+    <context:annotation-config />
+    <context:compontent-scan base-package="com.spruds.transport" /> -->
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName">
+            <value>com.mysql.jdbc.Driver</value>
+        </property>
+        <property name="url">
+            <value>jdbc:mysql://localhost/meteo_spider?useUnicode=true&amp;characterEncoding=UTF8</value>
+        </property>
+        <property name="username">
+            <value>root</value>
+        </property>
+        <property name="password">
+            <value>memento</value>
+        </property>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.spruds.meteo.model.Country</value>
+                <value>com.spruds.meteo.model.Location</value>
+                <value>com.spruds.meteo.model.Reading</value>
+                <value>com.spruds.meteo.model.RadarReading</value>
+                <value>com.spruds.meteo.model.ConditionType</value>
+                <value>com.spruds.meteo.model.Forecast</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">false</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="timerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
+        <property name="scheduledTimerTasks">
+            <list>
+                <!--
+                <ref bean="googleReaderSchedule"/>
+                <ref bean="latvianRadarReaderSchedule"/>
+                -->
+                <ref bean="latvianStateRoadsReaderSchedule"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- data providers -->
+    <bean id="httpManager" class="com.spruds.meteo.utils.HttpManager"/>
+
+    <!-- parsers -->
+    <bean id="googleMessageParser" class="com.spruds.meteo.service.xml.parsers.GoogleMessageParser"/>
+    <bean id="yrForecastParser" class="com.spruds.meteo.service.xml.parsers.YrForecastParser"/>
+    <bean id="latvianStateRoadsParser" class="com.spruds.meteo.service.xml.parsers.LatvianStateRoadsParser">
+        <property name="locationService" ref="locationService"/>
+    </bean>
+
+    <!-- services -->
+    <bean id="googleDataProvider" class="com.spruds.meteo.service.xml.GoogleDataProvider">
+        <property name="httpManager" ref="httpManager"/>
+        <property name="googleMessageParser" ref="googleMessageParser"/>
+    </bean>
+
+    <bean id="latvianRadarDataProvider" class="com.spruds.meteo.service.xml.LatvianRadarDataProvider">
+        <property name="httpManager" ref="httpManager"/>
+    </bean>
+
+    <bean id="latvianStateRoadsDataProvider" class="com.spruds.meteo.service.xml.LatvianStateRoadsDataProvider">
+        <property name="httpManager" ref="httpManager"/>
+        <property name="latvianStateRoadsParser" ref="latvianStateRoadsParser"/>
+    </bean>
+
+    <bean id="yrDataProvider" class="com.spruds.meteo.service.xml.YrDataProvider">
+        <property name="httpManager" ref="httpManager"/>
+        <property name="yrForecastParser" ref="yrForecastParser"/>
+    </bean>
+
+    <bean id="forecastService" class="com.spruds.meteo.service.data.ForecastService">
+        <property name="template" ref="hibernateTemplate"/>
+        <property name="yrDataProvider" ref="yrDataProvider"/>
+    </bean>
+
+    <bean id="locationService" class="com.spruds.meteo.service.data.LocationService">
+        <property name="template" ref="hibernateTemplate"/>
+    </bean>
+
+    <bean id="readingService" class="com.spruds.meteo.service.data.ReadingService">
+        <property name="template" ref="hibernateTemplate"/>
+    </bean>
+
+    <bean id="radarReadingService" class="com.spruds.meteo.service.data.RadarReadingService">
+        <property name="template" ref="hibernateTemplate"/>
+    </bean>    
+    
+    <!-- tasks -->
+    <bean id="googleReaderTask" class="com.spruds.meteo.service.tasks.GoogleReaderTask">
+        <property name="locationService" ref="locationService"/>
+        <property name="readingService" ref="readingService"/>
+        <property name="googleDataProvider" ref="googleDataProvider"/>
+    </bean>
+
+    <bean id="latvianRadarReaderTask" class="com.spruds.meteo.service.tasks.LatvianRadarReaderTask">
+        <property name="radarReadingService" ref="radarReadingService"/>
+        <property name="latvianRadarDataProvider" ref="latvianRadarDataProvider"/>
+    </bean>
+
+    <bean id="latvianStateRoadsReaderTask" class="com.spruds.meteo.service.tasks.LatvianStateRoadsReaderTask">
+        <property name="latvianStateRoadsDataProvider" ref="latvianStateRoadsDataProvider"/>
+        <property name="readingService" ref="readingService"/>
+    </bean>
+
+    <!-- schedules -->
+    <bean id="googleReaderSchedule" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+        <property name="delay" value="1000"/>
+        <property name="period" value="600000"/>
+        <property name="timerTask" ref="googleReaderTask"/>
+    </bean>
+
+    <bean id="latvianRadarReaderSchedule" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+        <property name="delay" value="1000"/>
+        <property name="period" value="600000"/>
+        <property name="timerTask" ref="latvianRadarReaderTask"/>
+    </bean>
+
+    <bean id="latvianStateRoadsReaderSchedule" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+        <property name="delay" value="1000"/>
+        <property name="period" value="600000"/>
+        <property name="timerTask" ref="latvianStateRoadsReaderTask"/>
+    </bean>
+</beans>

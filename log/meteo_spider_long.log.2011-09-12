@@ -1,0 +1,3 @@
+2011-09-12 23:42:44,706 INFO  com.spruds.meteo.service.SpiderDaemon  - startup complete
+2011-09-12 23:42:45,158 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
+2011-09-12 23:43:45,159 DEBUG com.spruds.meteo.service.tasks.GoogleReaderTask  - GoogleReaderTask running
